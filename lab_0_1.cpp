@@ -25,23 +25,24 @@ using namespace std;
 bool ToBool(char c);
 bool ProcessLine(string e);
 bool ProcessBits(string bitwise_operator, bool operand_1, bool operand_2);
+void PrintResult(bool res[], int count);
 
 /* Main program */
 int main(){
 
 	int choice, N;
+	int count = 0;
+	bool results[101];
+	bool result;
+	string expression;	
 	// Enter choice (1,2,3)
 	cin >> choice;
 
 	if (choice == 1){
-		bool results[101];
 		// Read the number of integer N
 		cin >> N;
 		cin.ignore();
 
-		string expression;	
-		int result;
-		int count = 0;
 		for (int line_number = 0; line_number < N; line_number++){
 			// Read line;
 			getline(cin, expression);
@@ -53,11 +54,36 @@ int main(){
 			results[count] = result;
 			count++;
 		}
+	}
 
-		for( int r = 0; r < N; r++){
-			cout << results[r] << endl;
+	else if (choice == 2){
+		bool not_complete = true;	
+		cin.ignore();
+
+		while(not_complete){
+			getline(cin, expression);
+			if(expression == "0")
+				not_complete = false;
+			else{
+				result = ProcessLine(expression);
+
+				results[count] = result;
+				count++;
+			}
 		}
 	}
+
+	else{
+		cin.ignore();
+		while(getline(cin, expression)){
+			result = ProcessLine(expression);
+
+			results[count] = result;
+			count++;
+		}
+	}
+
+	PrintResult(results, count);
 	return 0;
 }
 
@@ -120,3 +146,8 @@ bool ProcessBits(string bitwise_operator, bool operand_1, bool operand_2){
 	return result;
 }
 
+void PrintResult(bool res[], int count){
+	for( int r = 0; r < count; r++){
+		cout << res[r] << endl;
+	}
+}
