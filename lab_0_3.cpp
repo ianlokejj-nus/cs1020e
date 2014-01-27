@@ -17,8 +17,8 @@
 using namespace std;
 
 /* Function prototypes*/
-int GetLexiSum(string s);
 string ToLowerCase(string s);
+int CompareLexi(string s_1, string s_2);
 
 /* Main program */
 int main(){
@@ -32,19 +32,11 @@ int main(){
 	string_1 = ToLowerCase(string_1);
 	// convert string two to lower case
 	string_2 = ToLowerCase(string_2);
+	
+	int res;
+	res = CompareLexi(string_1, string_2);
+	cout << res << endl;
 
-	// Get the lexicographical sum for the characters in each string
-	int string_1_lexi_sum, string_2_lexi_sum;
-	string_1_lexi_sum = GetLexiSum(string_1);
-	string_2_lexi_sum = GetLexiSum(string_2);
-
-	// Compare cases
-	if (string_1_lexi_sum == string_2_lexi_sum)
-		cout << 0 << endl;
-	else if(string_1_lexi_sum < string_2_lexi_sum)
-		cout << 1 << endl;
-	else
-		cout << 2 << endl;
 	return 0;
 }
 
@@ -61,14 +53,27 @@ string ToLowerCase(string s){
 }
 
 /*
-	Function GetLexiSum
-	-------------------
-	Returns the lexi sum of all the characters in a string
+	Function CompareLexi 
+	--------------------
+	Compares 2 strings lexicographically
 */
-int GetLexiSum(string s){
-	int sum = 0;
-	for(int i = 0; i < s.length(); i++){
-		sum += s[i];
+int CompareLexi(string s_1, string s_2){
+	// Both strings are the same
+	if(s_1 == s_2)
+		return 0;
+	else{
+	int res, length_of_string;
+	length_of_string = s_1.length();
+	
+	for(int i = 0; i < length_of_string; i++){
+		if (s_1[i] > s_2[i]){
+			return 2;
+		}
+		else if (s_1[i] < s_2[i]){
+			return 1;
+		}
 	}
-	return sum;
+
+	return res;
+	}
 }
