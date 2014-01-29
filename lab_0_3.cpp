@@ -59,21 +59,10 @@ string ToLowerCase(string s){
 */
 int CompareLexi(string s_1, string s_2){
 	// Both strings are the same
-	if(s_1 == s_2)
+	if (s_1 == s_2)
 		return 0;
-	else{
-	int res, length_of_string;
-	length_of_string = s_1.length();
-	
-	for(int i = 0; i < length_of_string; i++){
-		if (s_1[i] > s_2[i]){
-			return 2;
-		}
-		else if (s_1[i] < s_2[i]){
-			return 1;
-		}
-	}
-
-	return res;
-	}
-}
+	else if	(s_1 < s_2)
+		return 1;
+	else
+		return 2;
+}	
