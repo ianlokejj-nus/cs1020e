@@ -19,6 +19,9 @@
 #ifndef _Matrix_h
 #define _Matrix_h
 #define MAX_MATRIX_SIZE 100;
+//#include<string>
+
+using namespace std;
 
 class Matrix{
 	public:
@@ -32,12 +35,21 @@ class Matrix{
 
 		int GetCell(int row, int column);
 	
+		void SetNumberOfOperations(int op);
+
+		void Operate(string operation);
 	private:
 		//#include "MatrixPriv.h"
 		int matrix[100][100];	
 		// TODO: create a pointer of double array
 		//int matrix[MAX_MATRIX_SIZE][MAX_MATRIX_SIZE];
 		int matrix_size;
+		int number_of_operations;
+		string query;
+		string format;
+	//	void ProcessOperation(string query, string format);
+		string GetQuery(string operation);
+		string GetFormat(string operation);
 };
 
 #endif

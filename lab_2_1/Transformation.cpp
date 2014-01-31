@@ -33,9 +33,25 @@ int main() {
 			cout << matrix.GetCell(row, column) << endl;;
 		}
 	}
+
+	int number_of_operations;
+	//string operation[100];
+	string opn;
 	// Get K the user input for the number of operations to occur
-	//
+	cin >> number_of_operations;
+	matrix.SetNumberOfOperations(number_of_operations);
+
+	cin.ignore();
 	// For each of K
+	for(int op = 0; op < number_of_operations; op++){
+		getline(cin, opn);
+		cout << "opn: " << opn << endl;
+		matrix.Operate(opn);
+	}
+
+	//	matrix.operate(operation);
+
+
 	// 	Get and store the string of the operator to be performed
 
 
