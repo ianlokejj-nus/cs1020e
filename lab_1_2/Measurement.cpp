@@ -26,12 +26,8 @@ int main() {
 	int height;
 
 	for(int p = 0; p < number_of_persons; p++){
-		cout << "Person: " << p << endl;
 		cin >> name >> height >> weight;
 
-		cout << "name: " << name<<endl;
-		cout << "height: " << height << endl;
-		cout << "weight: " << weight << endl;
 		persons_registry.Add(Person(name, height, weight));
 		persons_registry.Print();
 	}
@@ -42,7 +38,6 @@ int main() {
 	tallest_person = persons_registry.GetTallestPerson();
 	tallest_person_bmi = tallest_person->GetBMI();
 	int a = tallest_person->GetHeight();
-	cout << "tallest: " << a  << endl;
 	shortest_person = persons_registry.GetShortestPerson();
 	shortest_person_bmi = shortest_person->GetBMI();
 
