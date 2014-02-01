@@ -3,7 +3,7 @@
 Person::Person(string n, int h, int w){
 	name = n;
 	height = h;
-	weight = w;;
+	weight = w;
 }
 
 Person* Person::tallest(vector<Person*> list) {
@@ -22,4 +22,8 @@ double Person::getBMI() {
 
 void Person::GetHeight(){
 	cout << height << endl;
+}
+
+void Person::GetWeight(){
+	cout << weight << endl;
 }

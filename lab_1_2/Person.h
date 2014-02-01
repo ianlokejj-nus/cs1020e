@@ -14,10 +14,15 @@ class Person {
 		Person* shortest(vector<Person*> list);
 		double getBMI();
 		void GetHeight();
+		void GetWeight();
+		//void AddToList(Person* p);
 		//void SetHeight(int height);
 		//void SetWeight(int weight);
 		
 	private:
+		// Class variables
+		//static vector<Person*> list;
+
 		// Instance variables
 		string name;	
 		int height;
