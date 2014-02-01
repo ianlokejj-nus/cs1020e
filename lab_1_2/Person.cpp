@@ -1,3 +1,7 @@
+/*
+ * File: Person.cpp
+ */
+
 #include "Person.h"
 #include<iostream>
 Person::Person(string n, int h, int w){
@@ -15,15 +19,21 @@ Person* Person::shortest(vector<Person*> list) {
 	// get the shortest person from a list of people
 	return NULL;
 }
-double Person::getBMI() {
+double Person::GetBMI() {
 	// compute the BMI by using the formula given 
-	return 0.0;
+	double height_in_m = height * 1.0 / 100; 
+	bmi = weight / (height_in_m * height_in_m);
+	return bmi;
 }
 
-void Person::GetHeight(){
-	cout << height << endl;
+int Person::GetHeight(){
+	return height;
 }
 
-void Person::GetWeight(){
-	cout << weight << endl;
+int  Person::GetWeight(){
+	return weight;
+}
+
+string Person::GetName(){
+	return name;
 }

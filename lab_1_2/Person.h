@@ -2,6 +2,9 @@
  * File: Persion.h
  */
 
+#ifndef __PERSON_H_INCLUDED__
+#define __PERSON_H_INCLUDED__
+
 #include <string>
 #include <vector>
 
@@ -12,23 +15,20 @@ class Person {
 		Person(string name, int height, int weight);
 		Person* tallest(vector<Person*> list);
 		Person* shortest(vector<Person*> list);
-		double getBMI();
-		void GetHeight();
-		void GetWeight();
-		//void AddToList(Person* p);
-		//void SetHeight(int height);
-		//void SetWeight(int weight);
-		
+		double GetBMI();
+		int GetHeight();
+		string GetName();
+			
 	private:
 		// Class variables
-		//static vector<Person*> list;
 
 		// Instance variables
 		string name;	
 		int height;
 		int weight;
-		
-		//void GetHeight(Person* p);
-		//void GetWeight(Person* p);	
+		double bmi;
 
+		int GetWeight();
 };
+
+#endif
