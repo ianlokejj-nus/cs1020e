@@ -37,7 +37,7 @@ class Matrix{
 		void Operate(string operation);
 
 	private:
-		int matrix[100][100];	
+		int matrix[MAX_MATRIX_SIZE][MAX_MATRIX_SIZE];	
 		int matrix_size;
 		int number_of_operations;
 		string query;
