@@ -46,7 +46,10 @@ int main() {
 	// Print out the matrix
 	for(int row = 0; row < size_of_matrix; row++){
 		for(int column = 0; column < size_of_matrix; column++){
-			cout << matrix.GetCell(row, column) << " ";
+			cout << matrix.GetCell(row, column);
+			// Do not print space for the last element
+			if(size_of_matrix - 1 != column)
+				cout << " ";
 	}
 		cout << endl;
 	}
