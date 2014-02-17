@@ -36,9 +36,6 @@ int main(){
 				IanBook.PersonLeave(group_name, person_name);
 		}
 	}
-	//IanBook.PrintGroups();
-
-	//IanBook.PrintMembers();
 	return 0;
 }
 

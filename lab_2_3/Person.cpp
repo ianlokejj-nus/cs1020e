@@ -22,9 +22,7 @@ int Person::GetNumberOfFriends(){
 					friends_list.push_back(groups[i]->GetMemberName(j));
 			}
 		}
-//		total_number_of_friends += (groups[i]->GetNumberOfMembers()-1);
 	}
-//	return total_number_of_friends;
 	return friends_list.size();
 }
 

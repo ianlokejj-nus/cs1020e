@@ -5,8 +5,6 @@
 #include<string>
 #include<vector>
 
-//using namespace std;
-
 class Group{
 	public:
 		Group(string n);
@@ -15,6 +13,7 @@ class Group{
 		string GetMemberName(int i);
 		void AddMember(Person* p);
 		void DeleteMember(Person* p);
+		// for testing
 
 	private:
 		string name;

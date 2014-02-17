@@ -46,27 +46,20 @@ void SocialNetwork::PersonWithMostFriends(){
 	int max = -1;
 	string max_person_name;
 	for(int i = 0; i < Persons.size(); i++){
-//		cout << Persons[i]->GetName() << " has " << Persons[i]->GetNumberOfFriends() << endl;
 		if(Persons[i]->GetNumberOfFriends() >= max){
 			if(Persons[i]->GetNumberOfFriends() == max){
-//				cout << "Chall: " << Persons[i]->GetName() << " max_string: " << max_person_name << endl;
 				if (Persons[i]->GetName() < max_person_name){
 					max_person_name = Persons[i]->GetName();
 				}
-//				cout << "winner: " << max_person_name << endl;
 			}
 			else{
 				max = Persons[i]->GetNumberOfFriends();
 				max_person_name = Persons[i]->GetName();
-//				cout << "uncontested: " << max_person_name << endl;
 			}
-//		cout << "current winner: " << max_person_name << endl;
 		}
-
 	}
 
 	cout << max_person_name << endl;
-//	cout << endl;
 }
 
 Group* SocialNetwork::FindGroup(string g_name){
@@ -83,7 +76,6 @@ Group* SocialNetwork::FindGroup(string g_name){
 }
 
 void SocialNetwork::PersonJoin(string g_name, string p_name){
-	// Update the Persons vector
 	Person* p = NULL;
 	Group* g = NULL;
 

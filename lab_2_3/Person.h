@@ -1,7 +1,6 @@
 #ifndef __PERSON_H_INCLUDED__
 #define __PERSON_H_INCLUDED__
 
-//#include "Group.h"
 #include<string>
 #include<vector>
 
@@ -13,7 +12,6 @@ class Person{
 	public:
 		Person(string n);
 		string GetName();
-//		string GetGroupName(int i);
 		int GetNumberOfFriends();
 		int GetNumberOfGroups();
 		void AddGroup(Group* g);
