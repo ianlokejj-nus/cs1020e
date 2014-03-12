@@ -80,3 +80,56 @@ void DataStructure::print() const{
 bool DataStructure::isEmpty() const{
 	return (count == 0);
 }
+
+void DataStructure::deleteNode(const int deleteItem){
+	ListNode* current;
+	ListNode* trailCurrent;
+
+	bool found;
+
+	if(head == NULL)
+		cout << "Cannot delete from empty list" << endl;
+	else if (head->value == deleteItem){
+		current = head;
+		head = head->next;
+		
+		if(head != NULL)
+			head->prev = NULL;
+		else
+			tail = NULL;
+		count--;
+
+		delete current;
+		current = NULL;
+	}
+	else{
+		current = head;
+		found = false;
+
+		while(current != NULL && !found){
+			if(current->value >= deleteItem)
+				found = true;
+			else
+				current = current->next;
+		}
+
+		if(current == NULL)
+			cout << "The item to be deleted is not in the list" << endl;
+		else if(current->value == deleteItem){
+			trailCurrent = current->prev;
+			trailCurrent->next = current->next;
+
+			if(current->next !=NULL)
+				current->next->prev = trailCurrent;
+			if(current == tail)
+				tail = trailCurrent;
+
+			count--;
+		
+			delete current;
+			current = NULL;
+		}
+		else
+			cout << "The item to be deleted is not in the list" << endl;
+	}
+}

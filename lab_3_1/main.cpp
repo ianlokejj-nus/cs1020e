@@ -16,5 +16,9 @@ int main(){
 
 	ball_list.print();
 
+	ball_list.deleteNode(4);
+
+	ball_list.print();
+
 	return 0;
 }

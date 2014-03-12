@@ -7,6 +7,7 @@ class DataStructure{
 		DataStructure();
 		~DataStructure();
 		void insert(const int insertItem);
+		void deleteNode(const int deleteItem);
 		void print() const;
 		bool isEmpty() const;
 	private:
