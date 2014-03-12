@@ -16,13 +16,11 @@ int main(){
 
 	ball_list.print();
 
-	ball_list.deleteNode(3);
+	cout << endl;
 
-	ball_list.print();
+	int index;
+	bool value_present;
 
-	bool query = ball_list.search(2);
-
-	cout << "query: " << query << endl;
-
+	ball_list.moveLeft(1, 0);
 	return 0;
 }

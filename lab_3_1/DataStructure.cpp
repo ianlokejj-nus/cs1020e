@@ -159,3 +159,45 @@ bool DataStructure::traverseTo(DataStructure::ListNode* searchNode, const int &s
 
 	return false;
 }
+
+
+bool DataStructure::getIndexFromValue(const int &value, int &index, DataStructure::ListNode* index_pointer) const{
+	int current_index = 1;
+	ListNode* current = head;
+
+	while(current != NULL){
+		if(current->value == value){
+			index = current_index;
+			index_pointer = current;
+			cout << "value: " << value << " present at index: " << index << endl;
+			return true;
+		}
+		else{
+			current_index++;
+			current = current->next;
+		}
+	}
+	
+	cout << "value: " << value << " not found" << endl;
+	return false;
+}
+
+bool DataStructure::moveLeft(const int x_value, const int y_value){
+	int x_pos;
+	int y_pos;
+
+	ListNode* x_pointer;
+	ListNode* x_trail_pointer;
+	ListNode* y_pointer;
+
+	if(!getIndexFromValue(x_value, x_pos, x_pointer))
+		return false;
+	if(!getIndexFromValue(y_value, y_pos, y_pointer))
+		return false;
+
+	if(x_pos > y_pos){
+		return true;
+	}
+
+	return true;
+}

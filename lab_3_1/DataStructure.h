@@ -11,7 +11,7 @@ class DataStructure{
 		void print() const;
 		bool isEmpty() const;
 		bool search(const int &searchItem) const;
-		//bool traverseTo(ListNode* searchNode, const int &searchValue) const;
+		bool moveLeft(const int x_value, const int y_value);
 	private:
 		int count;
 		struct ListNode{
@@ -23,4 +23,6 @@ class DataStructure{
 		ListNode* tail;
 
 		bool traverseTo(ListNode* searchNode, const int &searchValue) const;
+
+		bool getIndexFromValue(const int &value, int &index, ListNode* index_pointer) const;
 };
