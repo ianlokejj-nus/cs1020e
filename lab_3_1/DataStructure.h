@@ -10,6 +10,8 @@ class DataStructure{
 		void deleteNode(const int deleteItem);
 		void print() const;
 		bool isEmpty() const;
+		bool search(const int &searchItem) const;
+		//bool traverseTo(ListNode* searchNode, const int &searchValue) const;
 	private:
 		int count;
 		struct ListNode{
@@ -19,4 +21,6 @@ class DataStructure{
 		};
 		ListNode* head;
 		ListNode* tail;
+
+		bool traverseTo(ListNode* searchNode, const int &searchValue) const;
 };

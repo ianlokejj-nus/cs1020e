@@ -103,6 +103,7 @@ void DataStructure::deleteNode(const int deleteItem){
 		current = NULL;
 	}
 	else{
+		cout << "hi" << endl;
 		current = head;
 		found = false;
 
@@ -132,4 +133,29 @@ void DataStructure::deleteNode(const int deleteItem){
 		else
 			cout << "The item to be deleted is not in the list" << endl;
 	}
+}
+
+bool DataStructure::search(const int &searchItem) const{
+	ListNode* current = head;
+	while(current != NULL){
+		if (current->value == searchItem)
+			return true;
+		else
+			current = current->next;
+	}
+	return false;
+}
+
+bool DataStructure::traverseTo(DataStructure::ListNode* searchNode, const int &searchValue) const{
+	ListNode* current = head;
+	while(current != NULL){
+		if(current->value == searchValue){
+			searchNode = current;
+			return true;
+		}
+		else
+			current = current->next;
+	}
+
+	return false;
 }
