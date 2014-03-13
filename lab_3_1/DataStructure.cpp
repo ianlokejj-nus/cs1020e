@@ -10,12 +10,14 @@ DataStructure::~DataStructure(){
 
 }
 
+// Pre condition: An integer is provided as an argument
+// Post condition: A node is created at the end of the list
 void DataStructure::insert(const int insertItem){
 	ListNode* current;
 	ListNode* trailCurrent;
 	ListNode* newNode;
 	bool found;
-
+	
 	newNode = new ListNode;
 	newNode->value = insertItem;
 	newNode->next = NULL;
@@ -67,6 +69,7 @@ void DataStructure::insert(const int insertItem){
 	}
 }
 
+// Post condition: prints all of the nodes in the list
 void DataStructure::print() const{
 	ListNode* cur = head;
 	if(!isEmpty()){
@@ -78,10 +81,13 @@ void DataStructure::print() const{
 	cout << endl;
 }
 
+// Post condition: checks to see if the list is empty
 bool DataStructure::isEmpty() const{
 	return (count == 0);
 }
 
+// Pre condition: Provide an integer which is already in the list
+// Post condition: The node containing the value is removed from the list
 void DataStructure::remove(const int deleteItem){
 	ListNode* current;
 	int current_index = 0;
@@ -130,62 +136,8 @@ void DataStructure::remove(const int deleteItem){
 	}
 }
 
-void DataStructure::deleteNode(const int deleteItem){
-	ListNode* current;
-	ListNode* trailCurrent;
-
-	bool found;
-
-	if(head == NULL)
-		cout << "Cannot delete from empty list" << endl;
-	else if (head->value == deleteItem){
-		current = head;
-		head = head->next;
-		
-		if(head != NULL)
-			head->prev = NULL;
-		else
-			tail = NULL;
-		count--;
-
-		delete current;
-		current = NULL;
-	}
-	else{
-//		cout << "hi" << endl;
-		current = head;
-		found = false;
-
-		while(current != NULL && !found){
-			if(current->value >= deleteItem)
-				found = true;
-			else
-				current = current->next;
-		}
-
-		if(current == NULL)
-			cout << "1 The item to be deleted is not in the list" << endl;
-		else if(current->value == deleteItem){
-			trailCurrent = current->prev;
-			trailCurrent->next = current->next;
-
-			if(current->next !=NULL)
-				current->next->prev = trailCurrent;
-			if(current == tail)
-				tail = trailCurrent;
-
-			count--;
-		
-			delete current;
-			current = NULL;
-		}
-		else{
-			cout << "2 The item to be deleted is not in the list" << endl;
-			cout << "the value is: " << current->value << endl;
-		}
-	}
-}
-
+// Pre condition: Provide an integer which is already in the list
+// Post condition: Return bool result of the presence of the node containing the integer
 bool DataStructure::search(const int &searchItem) const{
 	ListNode* current = head;
 	while(current != NULL){
@@ -197,6 +149,8 @@ bool DataStructure::search(const int &searchItem) const{
 	return false;
 }
 
+// Pre condition: Provide a listnode pointer and integer value which is already in the list
+// Post condition: Points the listnode pointer to the node containing the integer value
 bool DataStructure::traverseTo(DataStructure::ListNode* searchNode, const int &searchValue) const{
 	ListNode* current = head;
 	while(current != NULL){
@@ -211,7 +165,8 @@ bool DataStructure::traverseTo(DataStructure::ListNode* searchNode, const int &s
 	return false;
 }
 
-
+// Pre condition: Provide a listnode pointer, index variable and integer value which is already in the list
+// Post condition: Stores the index location of the node containing the integer value and Points the listnode pointer to the node containing the integer value
 bool DataStructure::getIndexFromValue(const int &value, int &index, DataStructure::ListNode* &index_pointer) const{
 	int current_index = 1;
 	ListNode* current = head;
@@ -233,6 +188,8 @@ bool DataStructure::getIndexFromValue(const int &value, int &index, DataStructur
 	return false;
 }
 
+// Pre condition: Provide 2 integer values which are already in the list
+// Post condition: Move x_value to the left of y_value
 bool DataStructure::moveLeft(const int x_value, const int y_value){
 	int x_pos;
 	int y_pos;
@@ -273,9 +230,16 @@ bool DataStructure::moveLeft(const int x_value, const int y_value){
 		return true;
 	}
 
+	// if x is on the left half of y but not beside it
+	if(y_pos - x_pos > 1){
+		moveRight(x_value, y_pointer->prev->value);
+	}
+
 	return false;
 }
 
+// Pre condition: Provide 2 integer values which are already in the list
+// Post condition: Move x_value to the right of y_value
 bool DataStructure::moveRight(const int x_value, const int y_value){
 	int x_pos;
 	int y_pos;
@@ -310,6 +274,12 @@ bool DataStructure::moveRight(const int x_value, const int y_value){
 		y_pointer->next = x_pointer;
 		x_pointer->prev = y_pointer;
 
+		return true;
+	}
+
+	// if x is on the right half of y but not beside it
+	if(x_pos - y_pos > 1){
+		moveLeft(x_value, y_pointer->next->value);
 		return true;
 	}
 	return false;
